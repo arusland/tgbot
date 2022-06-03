@@ -26,3 +26,5 @@ hs_err_pid*
 /application.properties
 /.idea/
 /target/
+/dependency-reduced-pom.xml
+.DS_Store

@@ -39,11 +39,11 @@ class BotConfig private constructor(prop: Properties) {
     }
 
     companion object {
-        fun load(fileName: String, throwOnError: Boolean = true): BotConfig {
+        fun load(fileName: File, throwOnError: Boolean = true): BotConfig {
             val props = Properties()
 
             try {
-                val file = File(fileName).canonicalFile
+                val file = fileName.canonicalFile
                 FileInputStream(file).use { input -> props.load(input) }
             } catch (e: Exception) {
                 if (throwOnError) {
