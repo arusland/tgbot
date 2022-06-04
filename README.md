@@ -1,9 +1,13 @@
 # tgbot
 Simple CLI for [Telegram Bot API](https://core.telegram.org/bots/api)
 
-## Example
+## Examples
 ```bash
 tgbot -c your_channel_id -m "Hello from cli"
+
+tgbot -c your_channel_id -f html -m "Simple <b>html</b> content"
+
+tgbot -c your_channel_id -f markdown -m "Simple *markdown* content"
 ```
 
 ## Requirements
@@ -18,7 +22,14 @@ mvn clean package
 ```
 ## Install
 * Copy files from `distr` into permanent application place
-* Add location of `tgbot` to `$PATH`
+* Add location of executable `tgbot` to `$PATH`
+
+## Configuration
+Create configuration file `~/.tgbot/tgbot.properties` with [Telegram Bot Token](https://core.telegram.org/bots#6-botfather)
+
+```properties
+bot.token=your_telegram_bot_token
+```
 
 ## Usage
 ```text
