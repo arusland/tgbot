@@ -1,6 +1,11 @@
 # tgbot
 Simple CLI for [Telegram Bot API](https://core.telegram.org/bots/api)
 
+## Example
+```bash
+tgbot -c your_channel_id -m "Hello from cli"
+```
+
 ## Requirements
 * Java 8 and higher
 * Maven 3.6 and higher
@@ -26,9 +31,4 @@ Simple CLI for Telegram Bot API
       -np, --nopreview    Disable web preview
   -s, --silent            Disable notification
   -V, --version           Print version info
-```
-
-## Example
-```bash
-tgbot -c your_channel_name -m "Hello from cli"
 ```
