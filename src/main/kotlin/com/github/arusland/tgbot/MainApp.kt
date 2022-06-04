@@ -5,14 +5,17 @@ import picocli.CommandLine
 import picocli.CommandLine.Command
 import picocli.CommandLine.Option
 import java.io.File
-import java.lang.IllegalArgumentException
 import java.util.concurrent.Callable
 import kotlin.system.exitProcess
 
 /**
  * Telegram bot CLI
  */
-@Command(name = "tgbot", version = ["1.1"], description = ["Simple CLI for Telegram Bot API"])
+@Command(
+    name = "tgbot",
+    description = ["Simple CLI for Telegram Bot API"],
+    versionProvider = ManifestVersionProvider::class
+)
 class MainApp : Callable<Int> {
     @Option(
         names = ["-c", "--chat"],
@@ -57,6 +60,13 @@ class MainApp : Callable<Int> {
         description = ["Custom config file"]
     )
     private var config: String = ""
+
+    @Option(
+        names = ["-V", "--version"],
+        versionHelp = true,
+        description = ["Print version info"]
+    )
+    private var versionRequested: Boolean = false
 
     private val service: Lazy<TelegramService> = lazy { createTelegramService() }
 
