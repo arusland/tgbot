@@ -12,7 +12,7 @@ import kotlin.system.exitProcess
 /**
  * Telegram bot CLI
  */
-@Command(name = "tgbot", version = ["1.0 "], description = ["Simple CLI for Telegram Bot API"])
+@Command(name = "tgbot", version = ["1.1"], description = ["Simple CLI for Telegram Bot API"])
 class MainApp : Callable<Int> {
     @Option(
         names = ["-c", "--chat"],
