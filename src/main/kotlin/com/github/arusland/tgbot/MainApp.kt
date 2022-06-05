@@ -71,11 +71,12 @@ class MainApp : Callable<Int> {
     private val service: Lazy<TelegramService> = lazy { createTelegramService() }
 
     override fun call(): Int {
-        service.value.sendMessage(
+        val messageId = service.value.sendMessage(
             chatId, message, mode = parseMode(format),
             disableNotification = disableNotification,
             disablePreview = disablePreview
         )
+        println(messageId)
         return 0
     }
 
