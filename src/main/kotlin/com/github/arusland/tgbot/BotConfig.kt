@@ -3,7 +3,6 @@ package com.github.arusland.tgbot
 import org.slf4j.LoggerFactory
 import java.io.File
 import java.io.FileInputStream
-import java.io.FileOutputStream
 import java.util.*
 
 /**
@@ -21,22 +20,6 @@ class BotConfig private constructor(prop: Properties) {
 
     private fun getProperty(key: String, defValue: String): String =
         props.getProperty(key) ?: defValue
-
-    private fun setLongList(propName: String, list: List<Long>) {
-        props.setProperty(propName, list.joinToString(","))
-    }
-
-    private fun getLongList(propName: String): List<Long> {
-        return getProperty(propName, "")
-            .split(",".toRegex())
-            .filter { it.isNotBlank() }
-            .map { it.trim().toLong() }
-            .toList()
-    }
-
-    fun save(fileName: String) {
-        FileOutputStream(fileName).use { output -> props.store(output, "Wikipeda Pod") }
-    }
 
     companion object {
         fun load(fileName: File, throwOnError: Boolean = true): BotConfig {
